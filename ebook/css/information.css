@@ -1,0 +1,112 @@
+/* 书本信息部分样式 */
+.ebook-info {
+    width: 76.5%;
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 25px;
+    background-color: white;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    box-sizing: border-box;
+}
+
+.info-left {
+    flex: 1;
+    text-align: left;
+}
+
+.info-right {
+    flex: 1;
+    text-align: right;
+}
+
+.book-title {
+    font-size: 24px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #333;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 8px;
+}
+
+.book-title::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 2px;
+    background: linear-gradient(90deg, #6a11cb 0%, #2575fc 100%);
+}
+
+.company,
+.author,
+.publish-date {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 8px;
+}
+
+.tags {
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 15px;
+}
+
+.tag {
+    background: linear-gradient(45deg, rgba(106, 17, 203, 0.1), rgba(37, 117, 252, 0.1));
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 14px;
+    color: #6a11cb;
+    transition: all 0.3s ease;
+}
+
+.tag:hover {
+    background: linear-gradient(45deg, rgba(106, 17, 203, 0.2), rgba(37, 117, 252, 0.2));
+    transform: translateY(-2px);
+}
+
+.total-pages,
+.rating,
+.price {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 8px;
+}
+
+.rating {
+    color: #ffc107;
+}
+
+/* 响应式设计 - 信息区域部分 */
+@media (max-width: 576px) {
+    .ebook-info {
+        width: 95%;
+        flex-direction: column;
+        align-items: center;
+        padding: 15px;
+    }
+
+    .info-left,
+    .info-right {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 15px;
+    }
+
+    .book-title::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .tags {
+        justify-content: center;
+    }
+}

@@ -1,0 +1,555 @@
+/* 修改电子书容器尺寸 - 从90%减少到76.5% */
+.ebook-container {
+    width: 76.5%; /* 原来是90%，减少15% */
+    max-width: 850px; /* 原来是1000px，减少15% */
+    margin: 80px auto 20px; 
+    position: relative;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    padding: 17px 13px; /* 按比例缩小 */
+}
+
+.page-wrapper {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.ebook-pages {
+    width: 100%;
+    min-height: 300px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    transition: transform 0.3s ease;
+    border-radius: 8px;
+}
+
+.page {
+    width: 50%;
+    height: auto;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    box-sizing: border-box;
+    position: relative;
+    will-change: opacity, transform; /* 添加性能优化标记 */
+}
+
+.page.active {
+    display: flex;
+}
+
+.page img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    border-radius: 0;
+    transition: transform 0.3s ease;
+}
+
+.page:hover img {
+    transform: scale(1.02);
+}
+
+/* 左右页面样式 - 无缝连接 */
+.left-page {
+    border-right: 0;
+    padding-right: 0;
+}
+
+.right-page {
+    border-left: 0;
+    padding-left: 0;
+}
+
+/* 全屏按钮样式 */
+.fullscreen-btn, .orientation-btn {
+    position: absolute;
+    top: 10px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 100;
+    transition: all 0.3s ease;
+    opacity: 0.7;
+}
+
+.fullscreen-btn {
+    right: 10px;
+}
+
+.orientation-btn {
+    right: 60px;
+}
+
+.fullscreen-btn:hover, .orientation-btn:hover {
+    opacity: 1;
+    background: rgba(106, 17, 203, 0.7);
+}
+
+.fullscreen-icon, .orientation-icon {
+    font-size: 18px;
+}
+
+/* 点击页面区域分层 */
+.page-click-overlay {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 50%;
+    z-index: 90;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+.left-overlay {
+    left: 0;
+}
+
+.right-overlay {
+    right: 0;
+}
+
+/* 全屏模式样式 */
+.fullscreen-mode {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #1a1a1a;
+    z-index: 9999;
+    margin: 0;
+    padding: 0;
+    border-radius: 0;
+    box-shadow: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+/* 横屏模式 */
+.landscape-mode .ebook-pages {
+    flex-direction: row;
+    width: 100%;
+}
+
+.landscape-mode .page {
+    width: 50%;
+    height: 100vh;
+}
+
+/* 竖屏模式 */
+.portrait-mode .ebook-pages {
+    flex-direction: column;
+    height: 100vh;
+}
+
+.portrait-mode .page {
+    width: 100%;
+    height: 50vh;
+}
+
+.portrait-mode .page-click-overlay {
+    width: 100%;
+    height: 50%;
+}
+
+.portrait-mode .left-overlay {
+    top: 0;
+}
+
+.portrait-mode .right-overlay {
+    top: 50%;
+}
+
+.fullscreen-mode .ebook-pages {
+    height: 100%;
+    width: 100%;
+}
+
+.fullscreen-mode .page {
+    background-color: #1a1a1a;
+}
+
+.fullscreen-mode .page img {
+    height: 100%;
+    object-fit: contain;
+}
+
+.fullscreen-mode .fullscreen-btn {
+    top: 20px;
+    right: 20px;
+}
+
+.fullscreen-mode .orientation-btn {
+    top: 20px;
+    right: 70px;
+}
+
+/* 图片放大模式样式 */
+.image-zoom-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85);
+    z-index: 9998;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    backdrop-filter: blur(5px);
+}
+
+.image-zoom-overlay.active {
+    display: flex;
+    opacity: 1;
+}
+
+.zoomed-image-container {
+    position: relative;
+    max-width: 90%;
+    max-height: 90%;
+    animation: zoomIn 0.3s ease forwards;
+}
+
+.zoomed-image {
+    max-width: 100%;
+    max-height: 90vh;
+    object-fit: contain;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.zoom-close-btn {
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+/* 拖拽图片样式 */
+.img-dragging {
+    transition: none !important;
+}
+
+/* 调整控制栏尺寸，保持一致 */
+.control-frame {
+    width: 76.5%; /* 原来是90%，减少15% */
+    max-width: 850px; /* 原来是1000px，减少15% */
+    margin: 15px auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    padding: 13px; /* 略微缩小内边距 */
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.control-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.prev-page-btn,
+.next-page-btn {
+    padding: 10px 20px;
+    background: linear-gradient(45deg, #6a11cb, #2575fc);
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 30px;
+    font-weight: 600;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.prev-page-btn:hover,
+.next-page-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+.prev-page-btn:active,
+.next-page-btn:active {
+    transform: translateY(-1px);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.page-slider {
+    flex-grow: 1;
+    margin: 0 20px;
+    height: 8px;
+    -webkit-appearance: none;
+    appearance: none;
+    background: #eee;
+    border-radius: 4px;
+    outline: none;
+}
+
+.page-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: linear-gradient(45deg, #6a11cb, #2575fc);
+    cursor: pointer;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+}
+
+.page-slider::-moz-range-thumb {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: linear-gradient(45deg, #6a11cb, #2575fc);
+    cursor: pointer;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+    border: none;
+}
+
+.current-left-page,
+.current-right-page {
+    padding: 5px;
+    margin-top: 8px;
+    font-size: 14px;
+    color: #666;
+}
+
+/* 修复全屏模式问题 */
+.fullscreen-mode {
+    width: 100vw !important;
+    height: 100vh !important;
+    max-width: 100vw !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    border-radius: 0 !important;
+    box-sizing: border-box !important;
+}
+
+/* 修复移动端竖屏模式下的问题 */
+.portrait-mode .page {
+    width: 100% !important;
+    height: 50vh !important;
+    padding: 0 !important;
+}
+
+.portrait-mode .page-click-overlay {
+    width: 100% !important;
+    height: 50% !important;
+}
+
+.portrait-mode .right-overlay {
+    top: 50% !important;
+    left: 0 !important;
+    right: 0 !important;
+}
+
+/* 全屏模式下的布局修复 */
+body.fullscreen-active {
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+}
+
+/* 响应式设计 - 电子书容器部分 */
+@media (max-width: 576px) {
+    .ebook-container {
+        width: 95%;
+        margin-top: 70px;
+        padding: 10px;
+    }
+
+    .control-frame {
+        width: 95%;
+        padding: 12px;
+        flex-wrap: wrap;
+    }
+
+    .prev-page-btn,
+    .next-page-btn {
+        padding: 8px 15px;
+        font-size: 14px;
+    }
+
+    .page-slider {
+        width: 100%;
+        margin: 15px 0;
+        order: 3;
+    }
+
+    .control-group {
+        width: 48%;
+    }
+
+    .current-left-page,
+    .current-right-page {
+        font-size: 12px;
+    }
+    
+    /* 移动端全屏模式强制修复 */
+    .fullscreen-mode {
+        position: fixed !important;
+        width: 100vw !important;
+        height: 100vh !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        bottom: 0 !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+    
+    /* 移动端全屏竖屏模式下去除顶部白色区域 */
+    .portrait-mode .ebook-pages {
+        margin-top: 0 !important;
+        padding-top: 0 !important;
+    }
+}
+
+/* 翻页动画样式 */
+/* 移动端翻页动画 */
+@media (max-width: 767px) {
+    @keyframes pageTurn {
+        0% { 
+            transform: translateX(20px) scale(0.97) rotateY(-8deg); 
+            opacity: 0.8; 
+            box-shadow: -5px 0 10px rgba(0,0,0,0.2);
+        }
+        100% { 
+            transform: translateX(0) scale(1) rotateY(0); 
+            opacity: 1; 
+            box-shadow: 0 0 0 rgba(0,0,0,0);
+        }
+    }
+    
+    @keyframes pageTurnReverse {
+        0% { 
+            transform: translateX(-20px) scale(0.97) rotateY(8deg); 
+            opacity: 0.8; 
+            box-shadow: 5px 0 10px rgba(0,0,0,0.2);
+        }
+        100% { 
+            transform: translateX(0) scale(1) rotateY(0); 
+            opacity: 1; 
+            box-shadow: 0 0 0 rgba(0,0,0,0);
+        }
+    }
+    
+    /* 竖屏模式下的翻页动画 */
+    @keyframes pageTurnPortrait {
+        0% { 
+            transform: translateY(20px) scale(0.97); 
+            opacity: 0.8; 
+            box-shadow: 0 -5px 10px rgba(0,0,0,0.2);
+        }
+        100% { 
+            transform: translateY(0) scale(1); 
+            opacity: 1; 
+            box-shadow: 0 0 0 rgba(0,0,0,0);
+        }
+    }
+    
+    @keyframes pageTurnPortraitReverse {
+        0% { 
+            transform: translateY(-20px) scale(0.97); 
+            opacity: 0.8; 
+            box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+        }
+        100% { 
+            transform: translateY(0) scale(1); 
+            opacity: 1; 
+            box-shadow: 0 0 0 rgba(0,0,0,0);
+        }
+    }
+}
+
+/* 电脑端简化2D翻页动画 */
+@media (min-width: 768px) {
+    @keyframes pageTurn {
+        0% { 
+            transform: translateX(40px);
+            opacity: 0.7; 
+            box-shadow: -10px 0 15px rgba(0,0,0,0.15);
+        }
+        100% { 
+            transform: translateX(0);
+            opacity: 1; 
+            box-shadow: 0 0 0 rgba(0,0,0,0);
+        }
+    }
+    
+    @keyframes pageTurnReverse {
+        0% { 
+            transform: translateX(-40px);
+            opacity: 0.7; 
+            box-shadow: 10px 0 15px rgba(0,0,0,0.15);
+        }
+        100% { 
+            transform: translateX(0);
+            opacity: 1; 
+            box-shadow: 0 0 0 rgba(0,0,0,0);
+        }
+    }
+    
+    /* 简化的页面悬浮效果 */
+    .page.active {
+        transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
+    }
+    
+    .page.active:hover {
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        transform: translateY(-2px);
+    }
+    
+    /* 移除3D特效相关代码，使用简单的上浮效果 */
+    .left-page.active:hover,
+    .right-page.active:hover {
+        transform: translateY(-2px);
+    }
+}
+
+/* 缩放动画效果 */
+@keyframes zoomIn {
+    from { transform: scale(0.5); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes zoomOut {
+    from { transform: scale(1); opacity: 1; }
+    to { transform: scale(0.5); opacity: 0; }
+}

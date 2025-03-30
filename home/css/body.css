@@ -1,0 +1,511 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+/* 内容板块基础样式 */
+.content-section {
+    padding: 80px 0;
+    background-color: #f9f9f9;
+    position: relative;
+    overflow: hidden;
+}
+
+.content-section.alt {
+    background-color: #ffffff;
+}
+
+.content-section-header {
+    text-align: center;
+    margin-bottom: 50px;
+    position: relative;
+}
+
+.content-section-header h2 {
+    font-size: 2.5rem;
+    margin: 0;
+    color: #333;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 15px;
+}
+
+.content-section-header h2::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(90deg, #6a11cb 0%, #2575fc 100%);
+    border-radius: 3px;
+}
+
+.content-section-header p {
+    font-size: 1.1rem;
+    color: #666;
+    max-width: 600px;
+    margin: 15px auto 0;
+}
+
+/* 卡片容器样式 */
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 30px;
+    padding: 0 30px;
+    max-width: 1400px;
+    margin: 0 auto;
+    position: relative;
+}
+
+/* 卡片样式 */
+.card {
+    border-radius: 12px;
+    overflow: hidden;
+    background-color: #fff;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    transition: transform 0.4s ease, box-shadow 0.4s ease, opacity 0.5s ease;
+    position: relative;
+    z-index: 1;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+    z-index: 2;
+}
+
+.card-image {
+    position: relative;
+    overflow: hidden;
+    height: 220px;
+}
+
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s ease;
+}
+
+.card:hover .card-image img {
+    transform: scale(1.05);
+}
+
+.card-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: linear-gradient(45deg, #6a11cb, #2575fc);
+    color: white;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+.card-content {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.card-title {
+    font-size: 1.4rem;
+    margin: 0 0 15px 0;
+    color: #333;
+    font-weight: 600;
+}
+
+.card-description {
+    color: #666;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.card-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+    padding-top: 15px;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.card-rating {
+    color: #ffc107;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+}
+
+.card-rating span {
+    margin-left: 5px;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.card-comments {
+    font-size: 0.9rem;
+    color: #666;
+    background-color: #f8f9fa;
+    padding: 15px;
+    border-radius: 0 0 12px 12px;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* 查看更多按钮 */
+.view-more-container {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.view-more-btn {
+    display: inline-block;
+    padding: 12px 30px;
+    background: linear-gradient(45deg, #6a11cb, #2575fc);
+    color: white;
+    border-radius: 30px;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    text-decoration: none;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.view-more-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.view-more-btn:active {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* 添加按钮点击时的涟漪效果 */
+.view-more-btn::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 30px;
+    transform: scale(0);
+    opacity: 0;
+    transition: all 0.4s ease;
+}
+
+.view-more-btn:active::after {
+    transform: scale(2);
+    opacity: 0;
+    transition: 0s;
+}
+
+/* 页脚样式 */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 15px;
+}
+
+/* 去除连接下划线 */
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* 响应式布局 */
+@media (max-width: 991px) {
+    .content-section {
+        padding: 60px 0;
+    }
+    
+    .content-section-header h2 {
+        font-size: 2.2rem;
+    }
+}
+
+@media (max-width: 767px) {
+    .card-container {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        padding: 0 20px;
+    }
+    
+    .content-section-header h2 {
+        font-size: 2rem;
+    }
+    
+    .content-section {
+        padding: 50px 0;
+    }
+    
+    .view-more-btn {
+        padding: 10px 25px;
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .card-container {
+        grid-template-columns: 1fr;
+        padding: 0 15px;
+    }
+    
+    .content-section-header h2 {
+        font-size: 1.8rem;
+    }
+    
+    .card-image {
+        height: 200px;
+    }
+    
+    .view-more-btn {
+        padding: 8px 20px;
+        font-size: 0.8rem;
+        width: 80%;
+    }
+}
+/* ===== 3D角色卡片效果 ===== */
+/* 为3D卡片区域添加透视效果 */
+.char3d-section {
+    position: relative;
+    perspective: 1500px;
+    padding-bottom: 100px;
+}
+
+/* 3D卡片容器 */
+.char3d-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 60px;
+    padding: 50px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* 卡片相关变量 */
+:root {
+    --transition-3d: all 0.7s cubic-bezier(0.23, 1, 0.32, 1);
+    --text-shadow-3d: 0 2px 5px rgba(0, 0, 0, 0.8), 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+/* 卡片外壳 */
+.char3d-card-wrapper {
+    position: relative;
+    width: 300px;
+    height: 450px;
+    transition: var(--transition-3d);
+    cursor: pointer;
+    perspective: 1500px;
+    transform-style: preserve-3d;
+}
+
+/* 卡片本体 */
+.char3d-card {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: var(--transition-3d);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    overflow: hidden;
+    will-change: transform;
+}
+
+.char3d-front {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    background-position: center;
+    background-size: cover;
+    border-radius: 15px;
+    overflow: hidden;
+    transform-style: preserve-3d;
+    transition: var(--transition-3d);
+}
+
+.char3d-front::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 70%);
+    z-index: 1;
+    transition: var(--transition-3d);
+}
+
+/* 文字容器 - 修复X轴居中问题 */
+.char3d-content {
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+    width: 100%;
+    padding: 0; /* 移除内边距 */
+    z-index: 10; 
+    color: #fff;
+    text-align: center;
+    transition: var(--transition-3d);
+    pointer-events: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* 确保子元素在容器中居中 */
+    justify-content: center; /* 增加垂直居中 */
+    transform: translateX(0); /* 确保没有X轴偏移 */
+}
+
+/* 卡片标题 - 确保居中 */
+.char3d-title {
+    font-size: 26px;
+    font-weight: bold;
+    margin: 0 0 10px 0; /* 移除可能的左右边距 */
+    text-shadow: var(--text-shadow-3d);
+    color: #f5d742;
+    transition: var(--transition-3d);
+    white-space: nowrap;
+    z-index: 4;
+    transform: scale(1) translateX(0);
+    width: 100%; /* 确保宽度占满容器 */
+    text-align: center; /* 再次确保文本居中 */
+}
+
+/* 卡片副标题/作者 - 确保居中 */
+.char3d-author {
+    font-size: 18px;
+    color: #fff;
+    margin: 0 0 10px 0; /* 移除可能的左右边距 */
+    opacity: 0.9;
+    transition: var(--transition-3d);
+    text-shadow: var(--text-shadow-3d);
+    z-index: 4;
+    transform: scale(1) translateX(0);
+    width: 100%; /* 确保宽度占满容器 */
+    text-align: center; /* 再次确保文本居中 */
+}
+
+/* 角色图片 */
+.char3d-character {
+    position: absolute;
+    height: 110%;
+    transform: translateZ(50px) translateX(-50%);
+    left: 50%;
+    bottom: -20px;
+    opacity: 0;
+    transition: var(--transition-3d);
+    z-index: 3; /* 确保这个值小于文字容器的z-index */
+    filter: drop-shadow(0 0 20px rgba(0, 0, 0, 0.5));
+    pointer-events: none;
+    transform-style: preserve-3d;
+}
+
+/* 卡片发光效果 */
+.char3d-glow {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 50% 50%, 
+                              rgba(255, 255, 255, 0.2) 0%, 
+                              rgba(0, 0, 0, 0) 70%);
+    opacity: 0;
+    transition: var(--transition-3d);
+    pointer-events: none;
+    z-index: 2;
+}
+
+/* 悬停效果 */
+.char3d-card-wrapper:hover .char3d-card {
+    transform: rotateX(25deg) translateZ(0);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+}
+
+.char3d-card-wrapper:hover .char3d-front::after {
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.5) 70%);
+}
+
+.char3d-card-wrapper:hover .char3d-character {
+    opacity: 1;
+    transform: translateZ(100px) translateX(-50%);
+}
+
+.char3d-card-wrapper:hover .char3d-content {
+    bottom: 50%;
+    transform: translateY(50%) translateZ(120px) translateX(0); /* 明确指定X轴不偏移 */
+}
+
+.char3d-card-wrapper:hover .char3d-title {
+    transform: scale(1.3) translateX(0); /* 确保放大时不偏移 */
+    opacity: 1;
+}
+
+.char3d-card-wrapper:hover .char3d-author {
+    transform: scale(1.15) translateX(0); /* 确保放大时不偏移 */
+    opacity: 1;
+    margin-top: 5px;
+}
+
+.char3d-card-wrapper:hover .char3d-glow {
+    opacity: 1;
+}
+
+/* 响应式调整 */
+@media (max-width: 991px) {
+    .char3d-container {
+        gap: 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    .char3d-container {
+        gap: 20px;
+    }
+    .char3d-card-wrapper {
+        width: 250px;
+        height: 375px;
+    }
+    .char3d-title {
+        font-size: 22px;
+    }
+    .char3d-author {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .char3d-container {
+        gap: 15px;
+    }
+    .char3d-card-wrapper {
+        width: 220px;
+        height: 330px;
+    }
+    .char3d-title {
+        font-size: 20px;
+    }
+    .char3d-author {
+        font-size: 14px;
+    }
+}

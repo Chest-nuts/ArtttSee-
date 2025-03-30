@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta data-nav-css="./navbar/nav.css">
+    <meta data-nav-base="./navbar">
+    <title>电子设定集预览 - 首页</title>
+    <link rel="stylesheet" href="./home/css/head.css">
+    <link rel="stylesheet" href="./home/css/body.css">
+    <link rel="stylesheet" href="./home/css/foot.css">
+</head>
+
+<body>
+    <!-- 导航栏 -->
+    <script src="./navbar/nav.js"></script>
+
+    <!-- 网站头部 -->
+    <header>
+        <!-- 轮播图数据 -->
+<div id="carousel-data" style="display:none;" 
+data-images='[
+   {"url": "./home/headpicture/art.jpg", "title": "设定集预览", "description": "探索精美的设定集世界，激发你的创作灵感", "link": "https://www.baidu.com"},
+   {"url": "./home/headpicture/ArtttSee001.jpg", "title": "创意无限", "description": "每一个设定都是一个独特的世界，等你探索", "link": "https://example.com/set2"},
+   {"url": "./home/headpicture/BF003.jpg", "title": "精美插画", "description": "欣赏高质量的原创插画，体验视觉盛宴", "link": "https://example.com/set3"},
+   {"url": "./home/headpicture/DaysGone.jpg", "title": "世界构建", "description": "沉浸在精心设计的世界观和故事背景中", "link": "https://example.com/set4"},
+   {"url": "./home/headpicture/Historia_00.jpg", "title": "角色设定", "description": "每个角色都有自己的故事和个性", "link": "https://example.com/set5"},
+   {"url": "./home/headpicture/TheLegend.jpg", "title": "场景设计", "description": "精美的环境和场景设计，让想象力自由驰骋", "link": "https://example.com/set6"},
+   {"url": "./home/headpicture/BF012.jpg", "title": "概念艺术", "description": "探索前沿的概念设计和未来愿景", "link": "https://example.com/set7"},
+   {"url": "./home/headpicture/BF025.jpg", "title": "互动体验", "description": "与创作者交流，分享你的见解和想法", "link": "https://example.com/set8"}
+]'>
+</div>
+        <div class="slider-container">
+            <!-- 桌面版轮播 -->
+            <div class="desktop-carousel">
+                <div class="top-right-corner"></div>
+                <div class="bottom-left-corner"></div>
+                <div id="slide">
+                </div>  
+                <div class="buttons">  
+                    <div class="s_button"><</div>  
+                    <div class="s_button">></div>  
+                </div>  
+            </div>
+            
+            <!-- 移动版轮播 -->
+            <div class="mobile-carousel">
+                <div class="mobile-slider">
+                </div>
+                <div class="mobile-indicators">
+                </div>
+                <div class="mobile-nav">
+                    <div class="mobile-nav-button prev"></div>
+                    <div class="mobile-nav-button next"></div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 设定集板块 -->
+    <section class="content-section">
+        <div class="content-section-header">
+            <h2>推荐设定集</h2>
+            <p>探索我们精选的最受欢迎设定集，从创意世界观到精美角色设计从创意世界观到精美角色设计从创意世界观到精美角色设计从创意世界观到精美角色设计</p>
+        </div>
+        
+        <div class="card-container">
+            <!-- 设定集卡片 1 -->
+            <div class="card">
+                <div class="card-image">
+                  <a href="../../ebook/html/e-book.html"> <img src="./home/toppicture/ArtofJourney_038.jpg" alt="设定集封面1" loading="lazy">
+                    <div class="card-badge">热门</div>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">星际边疆设定集</h3>
+                    <p class="card-description">一个充满未来主义色彩的宇宙设定，从创意世界观到精从创意世界观到精美角色设计从创意世界观到精美角色设计从创意世界观到精美角色设计从创意世界观到精美角色设计从创意世界观到精美角色设计从创意世界观到精美角色设计美角色设计从创意世界观到包含详尽的星球生态系统与文明发展史。</p>
+                    <div class="card-meta">
+                        <div class="card-rating">
+                            ★★★★☆ <span>(4.5)</span>
+                        </div>
+                        <div class="card-views">浏览量: 2.3k</div>
+                    </div></a>
+                </div>
+                <div class="card-comments">
+                    <p>ArtttSee：偏向画稿的设定集，整体比较无趣</p>
+                </div>  `
+            </div>
+            
+            <!-- 设定集卡片 2 -->
+            <div class="card">
+                <div class="card-image">
+                    <img src="./home/headpicture/BF022.jpg" alt="设定集封面2" loading="lazy">
+                    <div class="card-badge">新作</div>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">奇幻王国编年史</h3>
+                    <p class="card-description">一个包含魔法体系、种族设定与地理历史的完整奇幻世界。</p>
+                    <div class="card-meta">
+                        <div class="card-rating">
+                            ★★★★★ <span>(5.0)</span>
+                        </div>
+                        <div class="card-views">浏览量: 1.8k</div>
+                    </div>
+                </div>
+                <div class="card-comments">
+                    <p>ArtttSee：很详细的背景设定的设定集，能看懂就是精品</p>
+                </div>
+            </div>
+            
+            <!-- 设定集卡片 3 -->
+            <div class="card">
+                <div class="card-image">
+                    <img src="./home/toppicture/ArtofJourney_040.jpg" alt="设定集封面3" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">?!@!き市群像</h3>
+                    <p class="card-description">描绘未来高科技低生活的都市景观，包含社会结构与科技发展设定。</p>
+                    <div class="card-meta">
+                        <div class="card-rating">
+                            ★★★★☆ <span>(4.2)</span>
+                        </div>
+                        <div class="card-views">浏览量: 1.5k</div>
+                    </div>
+                </div>
+                <div class="card-comments">
+                    <p>用户C：科技设定既有创意又符合逻辑，角色塑造生动！</p>
+                </div>
+            </div>
+
+            <!-- 其他卡片内容保持不变 -->
+            <div class="card">
+                <div class="card-image">
+                    <img src="./home/toppicture/ArtofJourney_041.jpg" alt="设定集封面3" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">?!@!き市群像</h3>
+                    <p class="card-description">描绘未来高科技低生活的都市景观，包含社会结构与科技发展设定。</p>
+                    <div class="card-meta">
+                        <div class="card-rating">
+                            ★★★★☆ <span>(4.2)</span>
+                        </div>
+                        <div class="card-views">浏览量: 1.5k</div>
+                    </div>
+                </div>
+                <div class="card-comments">
+                    <p>用户C：科技设定既有创意又符合逻辑，角色塑造生动！</p>
+                </div>
+            </div>
+
+            <!-- 其他卡片内容保持不变 -->
+            <div class="card">
+                <div class="card-image">
+                    <img src="./home/toppicture/ArtofJourney_038.jpg" alt="设定集封面3" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">?!@!き市群像</h3>
+                    <p class="card-description">描绘未来高科技低生活的都市景观，包含社会结构与科技发展设定。</p>
+                    <div class="card-meta">
+                        <div class="card-rating">
+                            ★★★★☆ <span>(4.2)</span>
+                        </div>
+                        <div class="card-views">浏览量: 1.5k</div>
+                    </div>
+                </div>
+                <div class="card-comments">
+                    <p>用户C：科技设定既有创意又符合逻辑，角色塑造生动！</p>
+                </div>
+            </div>
+
+            <!-- 其他卡片内容保持不变 -->
+            <div class="card">
+                <div class="card-image">
+                    <img src="./home/toppicture/ArtofJourney_044.jpg" alt="设定集封面3" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">?!@!き市群像</h3>
+                    <p class="card-description">描绘未来高科技低生活的都市景观，包含社会结构与科技发展设定。</p>
+                    <div class="card-meta">
+                        <div class="card-rating">
+                            ★★★★☆ <span>(4.2)</span>
+                        </div>
+                        <div class="card-views">浏览量: 1.5k</div>
+                    </div>
+                </div>
+                <div class="card-comments">
+                    <p>用户C：科技设定既有创意又符合逻辑，角色塑造生动！</p>
+                </div>
+            </div>
+            
+            <!-- 其他卡片内容保持不变 -->
+            <div class="card">
+                <div class="card-image">
+                    <img src="./home/toppicture/ArtofJourney_052.jpg" alt="设定集封面3" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">?!@!き市群像</h3>
+                    <p class="card-description">描绘未来高科技低生活的都市景观，包含社会结构与科技发展设定。</p>
+                    <div class="card-meta">
+                        <div class="card-rating">
+                            ★★★★☆ <span>(4.2)</span>
+                        </div>
+                        <div class="card-views">浏览量: 1.5k</div>
+                    </div>
+                </div>
+                <div class="card-comments">
+                    <p>用户C：科技设定既有创意又符合逻辑，角色塑造生动！</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-image">
+                    <img src="./picture/002.jpg" alt="设定集封面3" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">?!@!き市群像</h3>
+                    <p class="card-description">描绘未来高科技低生活的都市景观，包含社会结构与科技发展设定。</p>
+                    <div class="card-meta">
+                        <div class="card-rating">
+                            ★★★★☆ <span>(4.2)</span>
+                        </div>
+                        <div class="card-views">浏览量: 1.5k</div>
+                    </div>
+                </div>
+                <div class="card-comments">
+                    <p>用户C：科技设定既有创意又符合逻辑，角色塑造生动！</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-image">
+                    <img src="/home/toppicture/ArtofJourney_049.jpg" alt="设定集封面3" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">?!@!き市群像</h3>
+                    <p class="card-description">描绘未来高科技低生活的都市景观，包含社会结构与科技发展设定。</p>
+                    <div class="card-meta">
+                        <div class="card-rating">
+                            ★★★★☆ <span>(4.2)</span>
+                        </div>
+                        <div class="card-views">浏览量: 1.5k</div>
+                    </div>
+                </div>
+                <div class="card-comments">
+                    <p>用户C：科技设定既有创意又符合逻辑，角色塑造生动！</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="view-more-container">
+            <a href="#" class="view-more-btn">查看更多</a>
+        </div>
+    </section>
+
+    <!-- 最新更新板块 -->
+    <section class="content-section alt">
+        <div class="content-section-header">
+            <h2>最新更新</h2>
+            <p>探索刚刚上线的新鲜设定集，获取最新创意灵感</p>
+        </div>
+        
+        <div class="card-container">
+            <!-- 最新设定集卡片 1 -->
+            <div class="card">
+                <div class="card-image">
+                    <img src="./home/newpicture/001.jpg" alt="最新设定集封面1" loading="lazy">
+                    <div class="card-badge">新品</div>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">&*$#*$**&*^</h3>
+                    <p class="card-description">一个另类历史背景下的123123世界，充满奇思妙想的机械设计。</p>
+                    <div class="card-meta">
+                        <div class="card-rating">
+                            ★★★★☆ <span>(4.3)</span>
+                        </div>
+                        <div class="card-views">浏览量: 856</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 最新设定集卡片 2 -->
+            <div class="card">
+                <div class="card-image">
+                    <img src="./home/newpicture/002.jpg" alt="最新设定集封面2" loading="lazy">
+                    <div class="card-badge">更新</div>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">东方幻想录</h3>
+                    <p class="card-description">融合东方神话与现代元素的奇幻世界，包含完整的神系与历史设定。</p>
+                    <div class="card-meta">
+                        <div class="card-rating">
+                            ★★★★☆ <span>(4.7)</span>
+                        </div>
+                        <div class="card-views">浏览量: 723</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-image">
+                    <img src="./home/newpicture/006.jpg" alt="最新设定集封面1" loading="lazy">
+                    <div class="card-badge">新品</div>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">&*$#*$**&*^</h3>
+                    <p class="card-description">一个另类历史背景下的123123世界，充满奇思妙想的机械设计。</p>
+                    <div class="card-meta">
+                        <div class="card-rating">
+                            ★★★★☆ <span>(4.3)</span>
+                        </div>
+                        <div class="card-views">浏览量: 856</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-image">
+                    <img src="./home/newpicture/009.jpg" alt="最新设定集封面1" loading="lazy">
+                    <div class="card-badge">新品</div>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">&*$#*$**&*^</h3>
+                    <p class="card-description">一个另类历史背景下的123123世界，充满奇思妙想的机械设计。</p>
+                    <div class="card-meta">
+                        <div class="card-rating">
+                            ★★★★☆ <span>(4.3)</span>
+                        </div>
+                        <div class="card-views">浏览量: 856</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-image">
+                    <img src="./home/newpicture/007.jpg" alt="最新设定集封面1" loading="lazy">
+                    <div class="card-badge">新品</div>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">&*$#*$**&*^</h3>
+                    <p class="card-description">一个另类历史背景下的123123世界，充满奇思妙想的机械设计。</p>
+                    <div class="card-meta">
+                        <div class="card-rating">
+                            ★★★★☆ <span>(4.3)</span>
+                        </div>
+                        <div class="card-views">浏览量: 856</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-image">
+                    <img src="./home/newpicture/012.jpg" alt="最新设定集封面1" loading="lazy">
+                    <div class="card-badge">新品</div>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">&*$#*$**&*^</h3>
+                    <p class="card-description">一个另类历史背景下的123123世界，充满奇思妙想的机械设计。</p>
+                    <div class="card-meta">
+                        <div class="card-rating">
+                            ★★★★☆ <span>(4.3)</span>
+                        </div>
+                        <div class="card-views">浏览量: 856</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-image">
+                    <img src="./home/newpicture/009.jpg" alt="最新设定集封面1" loading="lazy">
+                    <div class="card-badge">新品</div>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">&*$#*$**&*^</h3>
+                    <p class="card-description">一个另类历史背景下的123123世界，充满奇思妙想的机械设计。</p>
+                    <div class="card-meta">
+                        <div class="card-rating">
+                            ★★★★☆ <span>(4.3)</span>
+                        </div>
+                        <div class="card-views">浏览量: 856</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-image">
+                    <img src="./home/newpicture/009.jpg" alt="最新设定集封面1" loading="lazy">
+                    <div class="card-badge">新品</div>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">&*$#*$**&*^</h3>
+                    <p class="card-description">一个另类历史背景下的123123世界，充满奇思妙想的机械设计。</p>
+                    <div class="card-meta">
+                        <div class="card-rating">
+                            ★★★★☆ <span>(4.3)</span>
+                        </div>
+                        <div class="card-views">浏览量: 856</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-image">
+                    <img src="./home/newpicture/008.jpg" alt="最新设定集封面1" loading="lazy">
+                    <div class="card-badge">新品</div>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">&*$#*$**&*^</h3>
+                    <p class="card-description">一个另类历史背景下的123123世界，充满奇思妙想的机械设计。</p>
+                    <div class="card-meta">
+                        <div class="card-rating">
+                            ★★★★☆ <span>(4.3)</span>
+                        </div>
+                        <div class="card-views">浏览量: 856</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-image">
+                    <img src="./home/newpicture/004.jpg" alt="最新设定集封面1" loading="lazy">
+                    <div class="card-badge">新品</div>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">&*$#*$**&*^</h3>
+                    <p class="card-description">一个另类历史背景下的123123世界，充满奇思妙想的机械设计。</p>
+                    <div class="card-meta">
+                        <div class="card-rating">
+                            ★★★★☆ <span>(4.3)</span>
+                        </div>
+                        <div class="card-views">浏览量: 856</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-image">
+                    <img src="./home/newpicture/005.jpg" alt="最新设定集封面1" loading="lazy">
+                    <div class="card-badge">新品</div>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">&*$#*$**&*^</h3>
+                    <p class="card-description">一个另类历史背景下的123123世界，充满奇思妙想的机械设计。</p>
+                    <div class="card-meta">
+                        <div class="card-rating">
+                            ★★★★☆ <span>(4.3)</span>
+                        </div>
+                        <div class="card-views">浏览量: 856</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="view-more-container">
+            <a href="#" class="view-more-btn">查看更多</a>
+        </div>
+    </section>
+
+    <!-- 设定合集板块 -->
+<section class="content-section char3d-section">
+    <div class="content-section-header">
+        <h2>设定合集</h2>
+        <p>探索精美的角色设定与世界观构建，感受创作者的独特想象力</p>
+    </div>
+    
+    <div class="char3d-container">
+        <div class="char3d-card-wrapper" id="char3d-1">
+            <div class="char3d-card">
+                <div class="char3d-front" style="background-image: url('./home/colpicture/001.jpg');">
+                    <div class="char3d-glow"></div>
+                </div>
+            </div>
+            <!-- 角色图片 -->
+            <img src="./home/colpicture/person.png" alt="Character" class="char3d-character">
+            <!-- 文字内容 -->
+            <div class="char3d-content">
+                <h2 class="char3d-title">最终幻想</h2>
+                <p class="char3d-author">Final Fantasy </p>
+            </div>
+        </div>
+
+        <div class="char3d-card-wrapper" id="char3d-2">
+            <div class="char3d-card">
+                <div class="char3d-front" style="background-image: url('./home/colpicture/west.jpg');">
+                    <div class="char3d-glow"></div>
+                </div>
+            </div>
+            <!-- 角色图片 -->
+            <img src="./home/colpicture/person2.png" alt="Character" class="char3d-character">
+            <!-- 文字内容 -->
+            <div class="char3d-content">
+                <h2 class="char3d-title">地平线</h2>
+                <p class="char3d-author">Horizon</p>
+            </div>
+        </div>
+        
+        <div class="char3d-card-wrapper" id="char3d-3">
+            <div class="char3d-card">
+                <div class="char3d-front" style="background-image: url('./home/colpicture/splatoon.jpg');">
+                    <div class="char3d-glow"></div>
+                </div>
+            </div>
+            <!-- 角色图片 -->
+            <img src="./home/colpicture/person3.png" alt="Character" class="char3d-character">
+            <!-- 文字内容 -->
+            <div class="char3d-content">
+                <h2 class="char3d-title">死喷乱涂</h2>
+                <p class="char3d-author">Splatoon</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="view-more-container">
+        <a href="#" class="view-more-btn">查看更多</a>
+    </div>
+</section>
+
+    <!-- 页脚 -->
+    <footer class="site-footer">
+        <div class="footer-main">
+            <div class="footer-logo">
+                <img src="./logo.png" alt="网站 logo">
+            </div>
+            
+            <div class="social-icons">
+                <a href="#" class="social-icon" title="微信">
+                    <i class="icon-wechat"></i>
+                </a>
+                <a href="#" class="social-icon" title="微博">
+                    <i class="icon-weibo"></i>
+                </a>
+                <a href="#" class="social-icon" title="QQ">
+                    <i class="icon-qq"></i>
+                </a>
+                <a href="#" class="social-icon" title="Bilibili">
+                    <i class="icon-bilibili"></i>
+                </a>
+            </div>
+           
+            <div class="copyright">
+                &copy; 2025 电子设定集预览网站 版权所有
+            </div>
+            
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h3>关于我们</h3>
+                    <a href="#">网站介绍</a>
+                    <a href="#">团队成员</a>
+                    <a href="#">加入我们</a>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>帮助中心</h3>
+                    <a href="#">常见问题</a>
+                    <a href="#">使用教程</a>
+                    <a href="#">联系站长</a>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>内容合作</h3>
+                    <a href="#">内容投稿</a>
+                    <a href="#">版权合作</a>
+                    <a href="#">赞助计划</a>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>版权信息</h3>
+                    <a href="#">用户协议</a>
+                    <a href="#">隐私政策</a>
+                    <a href="#">版权声明</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>备案号：粤ICP备XXXXXXXX号 </p>
+        </div>
+    </footer>
+
+ 
+    <script src="./home/js/head.js"></script>
+    <script src="./home/js/body.js"></script>
+    <script src="./home/js/foot.js"></script>
+</body>
+
+</html>

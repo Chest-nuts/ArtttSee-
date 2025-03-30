@@ -1,0 +1,717 @@
+/* 头部.css - 简洁圆角设计版 */
+@font-face {  
+    font-family: "Alimama_DongFangDaKai_Regular";  
+    src: url(./font/Alimama_DongFangDaKai_Regular.ttf);  
+}  
+
+/* 网站头部样式 */
+header {
+    position: relative;
+    overflow: hidden;
+    margin-top: 70px; /* 为固定导航栏留出空间 */
+    height: calc(100vh - 250px);
+    min-height: 400px;
+    max-height: 600px;
+}
+
+/* 高级轮播样式 */
+.slider-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+/* ===================== 桌面版轮播 - 简洁圆角设计 ===================== */
+.desktop-carousel {
+    display: block; /* 默认显示桌面版 */
+    width: 100%;
+    height: 100%;
+    position: relative;
+    margin: 0 auto;
+    padding: 0;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+    background-color: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+}
+
+/* 轮播轻微边框 - 使用淡色透明边框 */
+.desktop-carousel::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 18px;
+    z-index: 10;
+    pointer-events: none;
+}
+
+/* 轮播内容区 */
+#slide {  
+    width: 100%;  
+    height: 100%;
+    margin-top: 0;
+    position: relative;
+    overflow: hidden;
+}  
+
+.item {  
+    width: 200px;  
+    height: 300px;  
+    background-position: center center;  
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: inline-block;  
+    position: absolute;  
+    top: 50%;  
+    margin-top: -150px;  
+    border-radius: 12px; /* 与内容区域卡片保持一致 */  
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15); /* 统一阴影风格 */  
+    transition: all 0.7s cubic-bezier(0.25, 0.1, 0.25, 1);
+    opacity: 1;
+    transform-origin: center center;
+    overflow: hidden;
+}  
+
+.item:nth-child(1),  
+.item:nth-child(2) {  
+    top: 0;  
+    left: 0;  
+    width: 100%;  
+    height: 100%;  
+    background-size: cover;  
+    background-repeat: no-repeat;  
+    background-position: center center;
+    margin-top: 0px;  
+    border-radius: 8px;  /* 更新边框半径 */  
+    box-shadow: none;
+}
+
+/* 缩略图位置定义 - 更精确的定位 */
+.item:nth-child(3) {  
+    left: 60%;  
+    transform: translateZ(0) scale(1);
+    opacity: 1;
+    z-index: 5;
+}  
+
+.item:nth-child(4) {  
+    left: calc(60% + 220px);  
+    transform: translateZ(0) scale(0.95);
+    opacity: 1;
+    z-index: 4;
+}  
+
+.item:nth-child(5) {  
+    left: calc(60% + 440px);  
+    transform: translateZ(0) scale(0.9);
+    opacity: 1;
+    z-index: 3;
+}
+
+/* 添加第6个位置的可见过渡 */
+.item:nth-child(6) {
+    left: calc(60% + 660px);
+    transform: translateZ(0) scale(0.85);
+    opacity: 1;
+    z-index: 2;
+}
+
+/* 将额外元素放在视野之外，但准备好过渡进来 */
+.item:nth-child(n+7) {
+    left: calc(60% + 880px);
+    transform: translateZ(0) scale(0.8);
+    opacity: 0;
+    z-index: 1;
+}
+
+.item .content {  
+    width: 40%;  
+    max-width: 450px;
+    position: absolute;  
+    left: 10%;  
+    top: 48%;  
+    transform: translateY(-50%);  
+    font-family: "Alimama_DongFangDaKai_Regular", Arial, sans-serif;  
+    color: #ffffff;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7); /* 增强文字阴影提高可读性 */
+    display: none;  
+}  
+
+.item .content button {  
+    border-radius: 30px;
+    background: linear-gradient(45deg, #6a11cb, #2575fc); /* 使用网站主色调 */
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    border: none;
+    padding: 12px 28px;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}  
+
+.item .content button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+/* 链接按钮样式 */
+.item .content .btn-detail {  
+    display: inline-block;
+    text-decoration: none;
+    border-radius: 30px;
+    background: linear-gradient(45deg, #6a11cb, #2575fc);
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    border: none;
+    padding: 12px 28px;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-align: center;
+    opacity: 0;  
+    animation: showcontent 1s ease-in-out 0.6s 1 forwards; 
+}  
+
+.item .content .btn-detail:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+.item:nth-child(2) .content {  
+    display: block;  
+}  
+
+.item .name {  
+    font-size: 2.5rem;  
+    font-weight: bold;  
+    opacity: 0;  
+    animation: showcontent 1s ease-in-out 1 forwards;
+    margin-bottom: 10px;
+}  
+
+.item .des {  
+    margin: 20px 0;  
+    opacity: 0;  
+    animation: showcontent 1s ease-in-out 0.3s 1 forwards;  
+    font-size: 1.2rem;
+    line-height: 1.5;
+}  
+
+.item button {  
+    padding: 12px 25px;  
+    border: none;  
+    opacity: 0;  
+    animation: showcontent 1s ease-in-out 0.6s 1 forwards;  
+    font-size: 1rem;
+}  
+
+@keyframes showcontent {  
+    from {  
+        opacity: 0;  
+        transform: translateY(100px);  
+        filter: blur(20px);  
+    }  
+
+    to {  
+        opacity: 1;  
+        transform: translateY(0);  
+        filter: blur(0);  
+    }  
+}  
+
+/* 导航按钮样式 */
+.buttons {  
+    position: absolute;  
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: space-between;
+    width: 150px;
+    z-index: 100;
+}  
+
+.s_button {  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;  
+    height: 60px;  
+    color: #333;  
+    background-color: rgba(255, 255, 255, 0.8);  
+    font-size: 22px;  
+    border-radius: 50%;  
+    font-weight: bold;  
+    border: none;  
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);  
+    transition: all 0.3s ease;
+    cursor: pointer;
+    user-select: none; /* 防止文本选择 */
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+}  
+
+.s_button:hover {  
+    background: linear-gradient(45deg, #6a11cb, #2575fc);
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+}
+
+/* 自定义箭头样式 */
+.arrow-left, .arrow-right {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-style: solid;
+    border-color: currentColor;
+    border-width: 0 0 3px 3px;
+    position: relative;
+}
+
+.arrow-left {
+    transform: rotate(45deg);
+    margin-right: 3px;
+}
+
+.arrow-right {
+    transform: rotate(225deg);
+    margin-left: 3px;
+}
+
+/* 给小图添加hover效果 */
+.item:nth-child(n+3):hover {
+    transform: translateY(-10px) scale(1.05) translateZ(0);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    z-index: 10;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+/* 为轮播添加硬件加速，提高性能 */
+#slide, .item {
+    will-change: transform;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+/* ===================== 移动端轮播样式（保持不变） ===================== */
+.mobile-carousel {
+    display: none; /* 默认隐藏移动版 */
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.mobile-slider {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s cubic-bezier(0.33, 1, 0.68, 1);
+}
+
+.mobile-slide {
+    flex: 0 0 100%;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    opacity: 0.4;
+    transform: scale(0.85);
+    transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.33, 1, 0.68, 1);
+}
+
+/* 当前激活的幻灯片 */
+.mobile-slide.active {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.mobile-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 85%;
+    padding: 20px;
+    color: white;
+    text-align: center;
+}
+
+.mobile-title {
+    font-size: 1.6rem;
+    margin-bottom: 12px;
+    font-weight: bold;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.8), 0 0 3px rgba(0,0,0,0.9);
+}
+
+.mobile-description {
+    font-size: 1rem;
+    margin-bottom: 22px;
+    line-height: 1.5;
+    text-shadow: 0 1px 6px rgba(0,0,0,0.8), 0 0 2px rgba(0,0,0,0.9);
+}
+
+.mobile-button {
+    background: linear-gradient(45deg, #6a11cb, #2575fc);
+    color: white;
+    border: none;
+    padding: 10px 22px;
+    border-radius: 30px;
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    margin-bottom: 5px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* 移动版链接按钮样式 */
+a.mobile-button {
+    display: inline-block;
+    text-decoration: none;
+    background: linear-gradient(45deg, #6a11cb, #2575fc);
+    color: white;
+    border: none;
+    padding: 10px 22px;
+    border-radius: 30px;
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    margin-bottom: 5px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-align: center;
+}
+
+.mobile-button:active,
+a.mobile-button:active {
+    transform: scale(0.95);
+    background: linear-gradient(45deg, #5910b0, #1e65da);
+}
+
+.mobile-indicators {
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 0;
+    z-index: 10;
+}
+
+.mobile-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: rgba(255,255,255,0.5);
+    transition: all 0.5s cubic-bezier(0.33, 1, 0.68, 1);
+    cursor: pointer;
+}
+
+.mobile-dot.active {
+    background-color: white;
+    width: 24px;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(255,255,255,0.5);
+}
+
+/* 新的导航按钮样式 - 开始 */
+.mobile-nav {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    transform: translateY(-50%);
+    width: 100%;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    pointer-events: none;
+    z-index: 15;
+}
+
+/* 按钮位置调整 */
+.mobile-nav-button.prev {
+    margin-left: 15px;
+}
+
+.mobile-nav-button.next {
+    margin-right: 15px;
+}
+
+/* 导航按钮基础样式 */
+.mobile-nav-button {
+    width: 44px;
+    height: 44px;
+    background-color: rgba(255,255,255,0.9);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: auto;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.18);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    position: relative;
+    border: none;
+}
+
+/* 简洁的点击效果 - 直接变色 */
+.mobile-nav-button:active {
+    background: linear-gradient(45deg, #6a11cb, #2575fc);
+    transform: scale(0.95);
+    box-shadow: 0 2px 8px rgba(106, 17, 203, 0.4);
+}
+
+/* 放大的箭头图标 - 左按钮 */
+.mobile-nav-button.prev::after {
+    content: '';
+    display: block;
+    width: 14px;
+    height: 22px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23333' stroke-width='2.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='15 18 9 12 15 6'%3E%3C/polyline%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: all 0.2s ease;
+}
+
+/* 放大的箭头图标 - 右按钮 */
+.mobile-nav-button.next::after {
+    content: '';
+    display: block;
+    width: 14px;
+    height: 22px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23333' stroke-width='2.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='9 18 15 12 9 6'%3E%3C/polyline%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: all 0.2s ease;
+}
+
+/* 点击时箭头变白色 */
+.mobile-nav-button.prev:active::after,
+.mobile-nav-button.next:active::after {
+    filter: brightness(0) invert(1); /* 简单地将任何颜色转为白色 */
+}
+
+/* 悬停效果 */
+.mobile-nav-button:hover {
+    background-color: #ffffff;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+    transform: translateY(-2px);
+}
+/* 新的导航按钮样式 - 结束 */
+
+/* 当前活动内容的动画 */
+@keyframes fadeInContent {
+    from { 
+        opacity: 0;
+        transform: translate(-50%, -40%);
+        filter: blur(5px);
+    }
+    to { 
+        opacity: 1;
+        transform: translate(-50%, -50%);
+        filter: blur(0);
+    }
+}
+
+/* 非活动内容的样式 */
+.mobile-slide:not(.active) .mobile-content {
+    opacity: 0;
+    transform: translate(-50%, -40%);
+    transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+}
+
+/* 活动内容的样式 */
+.mobile-slide.active .mobile-content {
+    animation: fadeInContent 0.7s ease-out 0.15s forwards;
+}
+
+/* 响应式调整 */
+@media (max-width: 1024px) {
+    header {
+        height: calc(85vh - 200px);
+    }
+    
+    .item .name {
+        font-size: 2rem;
+    }
+    
+    .item .des {
+        font-size: 1rem;
+    }
+    
+    .item:nth-child(3) {
+        left: 65%;
+        transform: translateZ(0) scale(0.9);
+    }
+    
+    .item:nth-child(4) {
+        left: calc(65% + 180px);
+        transform: translateZ(0) scale(0.85);
+    }
+    
+    .item:nth-child(5) {
+        left: calc(65% + 350px);
+        transform: translateZ(0) scale(0.8);
+    }
+    
+    .item:nth-child(6), .item:nth-child(n+6) {
+        left: calc(65% + 510px);
+        opacity: 0.3;
+    }
+    
+    .s_button {
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        height: 50vh;
+        min-height: 300px;
+    }
+    
+    /* 隐藏桌面版轮播，显示移动版轮播 */
+    .desktop-carousel {
+        display: none;
+    }
+    
+    .mobile-carousel {
+        display: block;
+    }
+    
+    /* 针对小屏幕手机优化内容大小 */
+    .mobile-content {
+        width: 85%;
+        padding: 20px;
+    }
+    
+    .mobile-title {
+        font-size: 1.5rem;
+    }
+    
+    /* 适应小屏幕的导航按钮样式 */
+    .mobile-nav-button {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .mobile-nav-button.prev {
+        margin-left: 10px;
+    }
+    
+    .mobile-nav-button.next {
+        margin-right: 10px;
+    }
+    
+    .mobile-nav-button.prev::after,
+    .mobile-nav-button.next::after {
+        width: 12px;
+        height: 18px;
+    }
+    
+    .item .content {
+        width: 75%;
+        left: 5%;
+        top: 45%;
+    }
+    
+    .item .name {
+        font-size: 1.8rem;
+    }
+    
+    .item .des {
+        font-size: 1rem;
+        margin: 15px 0;
+    }
+    
+    .item button {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+    
+    .s_button {
+        width: 45px;
+        height: 45px;
+        font-size: 18px;
+    }
+    
+    .buttons {
+        width: 110px;
+        bottom: 8%;
+    }
+    
+    .item:nth-child(3) {
+        left: auto;
+        right: 5%;
+        width: 150px;
+        height: 225px;
+        margin-top: -112.5px;
+        transform: translateZ(0) scale(1);
+    }
+    
+    .item:nth-child(4), .item:nth-child(5), .item:nth-child(n+6) {
+        display: none;
+    }
+}
+
+/* 更小屏幕的额外优化 */
+@media (max-width: 480px) {
+    .mobile-title {
+        font-size: 1.3rem;
+    }
+    
+    .mobile-description {
+        font-size: 0.9rem;
+    }
+    
+    .mobile-button {
+        padding: 8px 18px;
+        font-size: 0.85rem;
+    }
+    
+    /* 极小屏幕的导航按钮样式 */
+    .mobile-nav-button {
+        width: 36px;
+        height: 36px;
+    }
+    
+    .mobile-nav-button.prev {
+        margin-left: 8px;
+    }
+    
+    .mobile-nav-button.next {
+        margin-right: 8px;
+    }
+    
+    .mobile-nav-button.prev::after,
+    .mobile-nav-button.next::after {
+        width: 10px;
+        height: 16px;
+    }
+}

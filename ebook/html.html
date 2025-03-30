@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>电子设定集预览</title>
+    <meta data-nav-css="../navbar/导航.css">
+    <meta data-nav-base="../">
+    
+    <!-- 只需要引入样式文件，组件会自动加载 -->
+    <link rel="stylesheet" href="./css/information.css">
+    <link rel="stylesheet" href="./css/warning.css">
+</head>
+
+<body>
+    <!-- 导航栏 -->
+    <script src="../navbar/nav.js"></script>
+
+    <!-- 电子书组件容器 -->
+    <div id="ebook-component-container"></div>
+
+    <!-- 警告信息栏 -->
+    <div class="warning-container" id="warning-container">
+        <div class="warning-content">
+            <div class="warning-header" id="warning-header">
+                <div class="warning-icon">⚠️</div>
+                <h3 class="warning-title">注意事项</h3>
+                <!-- 初始状态下不设置文本，由JavaScript根据折叠状态设置 -->
+                <div class="warning-toggle" id="warning-toggle"></div>
+            </div>
+            <div class="warning-body" id="warning-body">
+                <p class="warning-text">当前电子书阅读器存在已知问题，初次加载时图片点击放大功能可能不可用。如需使用此功能，请先进入全屏模式再退出。</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 书本信息部分 - 保持原样 -->
+    <div class="ebook-info">
+        <div class="info-left">
+            <h2 class="book-title">《奇幻冒险之旅》</h2>
+            <p class="company">幻想图书公司</p>
+            <p class="author">作者：神秘写手</p>
+            <p class="publish-date">出版日期：2025 年 2 月</p>
+        </div>
+        <div class="info-right">
+            <div class="tags">
+                <span class="tag">奇幻</span>
+                <span class="tag">冒险</span>
+                <span class="tag">魔法</span>
+            </div>
+            <p class="total-pages">总页码：30</p>
+            <p class="rating">评分：★★★★☆</p>
+            <p class="price">价格：￥39.9</p>
+        </div>
+    </div>
+
+<!-- 1. 引入电子书组件脚本 -->
+<script src="./book.js"></script>
+
+<!-- 2. 初始化电子书组件 -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // 初始化电子书组件,理论上可以删掉。等我讨论
+        new EbookComponent({
+            containerId: 'ebook-component-container',
+            cssPath: './css/book.css',
+            totalPages: 108,
+            imagePath: '../artbookpicture/BF/',
+            imagePrefix: 'BF',
+            defaultImg: './logo.png'
+        });
+    });
+</script>
+<script src="./js/warning.js"></script>
+<script src="./js/information.js"></script>
+</body>
+
+</html>

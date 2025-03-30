@@ -1,0 +1,130 @@
+/* 警告组件 - 可折叠设计 */
+.warning-container {
+    width: 76.5%;
+    max-width: 850px;
+    margin: 20px auto;
+    background-color: #fffdf5;
+    border: 1px solid #ffe7a3;
+    border-left: 4px solid #ffc107;
+    border-radius: 8px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.warning-container:hover {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+.warning-content {
+    position: relative;
+}
+
+.warning-header {
+    display: flex;
+    align-items: center;
+    padding: 14px 16px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.warning-header:hover {
+    background-color: rgba(255, 193, 7, 0.05);
+}
+
+.warning-icon {
+    font-size: 20px;
+    color: #ffc107;
+    margin-right: 12px;
+    flex-shrink: 0;
+}
+
+.warning-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: #8a6d00;
+    margin: 0;
+    flex: 1;
+}
+
+.warning-toggle {
+    font-size: 13px;
+    font-weight: 500;
+    color: #b0b0b0;
+    background-color: rgba(0, 0, 0, 0.05);
+    padding: 3px 8px;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+}
+
+.warning-header:hover .warning-toggle {
+    color: #8a6d00;
+    background-color: rgba(255, 193, 7, 0.15);
+}
+
+.warning-body {
+    padding: 0 16px 16px 48px;
+    max-height: 300px;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease, opacity 0.2s ease;
+    opacity: 1;
+}
+
+.warning-text {
+    font-size: 14px;
+    line-height: 1.5;
+    color: #666666;
+    margin: 0;
+}
+
+/* 折叠状态 */
+.warning-collapsed .warning-body {
+    max-height: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    opacity: 0;
+}
+
+/* 动画效果 */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.warning-container {
+    animation: fadeIn 0.4s ease-out;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .warning-container {
+        width: 90%;
+    }
+}
+
+@media (max-width: 576px) {
+    .warning-header {
+        padding: 12px;
+    }
+    
+    .warning-icon {
+        font-size: 18px;
+    }
+    
+    .warning-title {
+        font-size: 14px;
+    }
+    
+    .warning-body {
+        padding: 0 12px 12px 42px;
+    }
+    
+    .warning-text {
+        font-size: 13px;
+    }
+    
+    .warning-toggle {
+        font-size: 12px;
+        padding: 2px 6px;
+    }
+}

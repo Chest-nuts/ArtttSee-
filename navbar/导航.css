@@ -1,0 +1,299 @@
+/* 导航栏样式 - 优化版 */
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #1a1a1a;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 5px 20px;
+    z-index: 1000;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.logo img {
+    height: 35px;
+    width: auto;
+    transition: transform 0.3s ease;
+}
+
+.logo:hover img {
+    transform: scale(1.05);
+}
+
+#nav-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+#nav-list li {
+    margin: 0 15px;
+    position: relative;
+}
+
+#nav-list li a {
+    color: white;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    padding: 3px 0;
+    position: relative;
+    white-space: nowrap;
+}
+
+#nav-list li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(45deg, #6a11cb, #2575fc);
+    transition: width 0.3s ease;
+}
+
+#nav-list li a:hover {
+    color: #2575fc;
+}
+
+#nav-list li a:hover::after {
+    width: 100%;
+}
+
+.search-bar {
+    display: flex;
+    margin-left: auto;
+    max-width: 220px;
+}
+
+.search-bar input {
+    padding: 6px 12px;
+    border: none;
+    border-radius: 4px 0 0 4px;
+    width: 150px;
+    font-size: 14px;
+    background-color: #333;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.search-bar input:focus {
+    outline: none;
+    background-color: #444;
+    width: 180px;
+}
+
+.search-bar input::placeholder {
+    color: #999;
+}
+
+.search-bar button {
+    padding: 6px 12px;
+    background: linear-gradient(45deg, #6a11cb, #2575fc);
+    color: white;
+    border: none;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.search-bar button:hover {
+    background: linear-gradient(45deg, #5910b0, #1e65da);
+}
+
+.hamburger-menu {
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 25px;
+    height: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-left: 10px;
+}
+
+.hamburger-menu span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: white;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+/* 汉堡菜单转换为X的动画 */
+.hamburger-menu.active span:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+}
+
+.hamburger-menu.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger-menu.active span:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+}
+
+/* PC端导航栏布局 */
+@media (min-width: 769px) {
+    nav {
+        padding: 0 50px;
+        height: 55px;
+        justify-content: space-between;
+    }
+    
+    .logo {
+        margin-right: 25px;
+    }
+    
+    #nav-list {
+        margin-right: auto;
+        flex-wrap: nowrap;
+    }
+    
+    .search-bar {
+        order: 3;
+        flex-shrink: 0;
+    }
+}
+
+/* 平板电脑的导航栏布局 */
+@media (max-width: 991px) and (min-width: 769px) {
+    .search-bar input {
+        width: 120px;
+    }
+    
+    .search-bar input:focus {
+        width: 150px;
+    }
+    
+    #nav-list li {
+        margin: 0 8px;
+    }
+    
+    nav {
+        padding: 0 30px;
+    }
+}
+
+/* 手机端导航栏布局 */
+@media (max-width: 768px) {
+    nav {
+        padding: 8px 15px;
+        justify-content: space-between;
+    }
+    
+    .logo {
+        order: 1;
+        margin-right: 0;
+        flex-shrink: 1;
+    }
+    
+    .logo img {
+        height: 30px;
+    }
+    
+    .search-bar {
+        order: 2;
+        flex-grow: 1;
+        margin: 0 10px;
+        max-width: 60%;
+    }
+    
+    .search-bar input {
+        width: 100%;
+        font-size: 14px;
+        padding: 6px 10px;
+    }
+    
+    .search-bar input:focus {
+        width: 100%;
+    }
+    
+    .search-bar button {
+        padding: 6px 10px;
+        font-size: 14px;
+    }
+    
+    .hamburger-menu {
+        display: flex;
+        order: 3;
+        flex-shrink: 0;
+        margin-left: 10px;
+    }
+    
+    #nav-list {
+        order: 4;
+        width: 100%;
+        flex-direction: column;
+        background-color: #222;
+        border-radius: 0 0 8px 8px;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.5s ease;
+        margin-top: 8px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        padding: 0;
+    }
+    
+    #nav-list.show {
+        max-height: 280px;
+        padding: 8px 0;
+    }
+    
+    #nav-list li {
+        margin: 0;
+        width: 100%;
+        text-align: center;
+    }
+    
+    #nav-list li a {
+        display: block;
+        padding: 10px 20px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    
+    #nav-list li:last-child a {
+        border-bottom: none;
+    }
+}
+
+/* 极小屏幕设备的调整 */
+@media (max-width: 480px) {
+    .search-bar {
+        max-width: 50%;
+    }
+    
+    .search-bar input {
+        width: 100%;
+        font-size: 12px;
+        padding: 6px 8px;
+    }
+    
+    .search-bar button {
+        padding: 6px 8px;
+        font-size: 12px;
+    }
+    
+    .logo img {
+        height: 28px;
+    }
+    
+    nav {
+        padding: 8px 10px;
+    }
+}

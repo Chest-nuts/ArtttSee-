@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>电子设定集预览 - 设定集</title>
+    <meta data-nav-css="../navbar/nav.css">
+    <meta data-nav-base="../">
+    <link rel="stylesheet" href="./css/container.css">
+    <link rel="stylesheet" href="./css/filter.css">
+</head>
+
+<body>
+    <script src="../navbar/nav.js"></script>
+
+    <h1>设定集</h1>
+    
+    <!-- 筛选导航容器 -->
+    <div class="filter-container">
+        <!-- 筛选头部 -->
+        <div class="filter-header">
+            <h2 class="filter-title">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M22 3H2l8 9.46V19l4 2v-8.54L22 3z"></path>
+                </svg>
+                智能筛选
+            </h2>
+            <button class="filter-toggle" id="filter-toggle">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="4" y1="21" x2="4" y2="14"></line>
+                    <line x1="4" y1="10" x2="4" y2="3"></line>
+                    <line x1="12" y1="21" x2="12" y2="12"></line>
+                    <line x1="12" y1="8" x2="12" y2="3"></line>
+                    <line x1="20" y1="21" x2="20" y2="16"></line>
+                    <line x1="20" y1="12" x2="20" y2="3"></line>
+                    <line x1="1" y1="14" x2="7" y2="14"></line>
+                    <line x1="9" y1="8" x2="15" y2="8"></line>
+                    <line x1="17" y1="16" x2="23" y2="16"></line>
+                </svg>
+                展开筛选选项
+            </button>
+        </div>
+
+        <!-- 活动筛选条件显示 -->
+        <div class="active-filters" id="active-filters">
+            <!-- 这里将动态添加已激活的筛选条件 -->
+        </div>
+
+        <!-- 筛选面板 -->
+        <div class="filter-panel collapsed" id="filter-panel">
+            <!-- 分类筛选 -->
+            <div class="filter-section">
+                <div class="filter-section-title">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                    </svg>
+                    内容分类
+                </div>
+                <div class="filter-tags" id="category-filters">
+                    <div class="filter-tag active" data-filter="all">全部</div>
+                    <div class="filter-tag" data-filter="科幻">科幻</div>
+                    <div class="filter-tag" data-filter="奇幻">奇幻</div>
+                    <div class="filter-tag" data-filter="世界观">世界观</div>
+                    <div class="filter-tag" data-filter="文明构想">文明构想</div>
+                    <div class="filter-tag" data-filter="生存策略">生存策略</div>
+                    <div class="filter-tag" data-filter="冒险指南">冒险指南</div>
+                    <div class="filter-tag" data-filter="魔法体系">魔法体系</div>
+                    <div class="filter-tag" data-filter="未来规划">未来规划</div>
+                </div>
+            </div>
+
+            <!-- 主题风格筛选 -->
+            <div class="filter-section">
+                <div class="filter-section-title">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path>
+                    </svg>
+                    主题风格
+                </div>
+                <div class="filter-tags" id="theme-filters">
+                    <div class="filter-tag active" data-filter="all">全部</div>
+                    <div class="filter-tag" data-filter="星际">星际</div>
+                    <div class="filter-tag" data-filter="魔法">魔法</div>
+                    <div class="filter-tag" data-filter="末日">末日</div>
+                    <div class="filter-tag" data-filter="异界">异界</div>
+                    <div class="filter-tag" data-filter="赛博朋克">赛博朋克</div>
+                    <div class="filter-tag" data-filter="蒸汽朋克">蒸汽朋克</div>
+                    <div class="filter-tag" data-filter="东方">东方</div>
+                    <div class="filter-tag" data-filter="西方">西方</div>
+                </div>
+            </div>
+
+            <!-- 特殊标签筛选 -->
+            <div class="filter-section">
+                <div class="filter-section-title">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path>
+                        <line x1="7" y1="7" x2="7.01" y2="7"></line>
+                    </svg>
+                    特殊标签
+                </div>
+                <div class="filter-tags" id="badge-filters">
+                    <div class="filter-tag active" data-filter="all">全部</div>
+                    <div class="filter-tag badge-tag hot" data-filter="热门">热门</div>
+                    <div class="filter-tag badge-tag new" data-filter="新品">新品</div>
+                    <div class="filter-tag badge-tag recommended" data-filter="推荐">推荐</div>
+                    <div class="filter-tag badge-tag limited" data-filter="限时">限时</div>
+                    <div class="filter-tag badge-tag exclusive" data-filter="独家">独家</div>
+                </div>
+            </div>
+
+            <!-- 排序方式 -->
+            <div class="filter-section">
+                <div class="filter-section-title">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="17 10 12 15 7 10"></polyline>
+                        <line x1="12" y1="15" x2="12" y2="3"></line>
+                        <line x1="5" y1="21" x2="19" y2="21"></line>
+                    </svg>
+                    排序方式
+                </div>
+                <div class="sort-wrapper">
+                    <div class="sort-select" id="sort-dropdown">
+                        <div class="sort-display">
+                            <span id="selected-sort">默认排序</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="6 9 12 15 18 9"></polyline>
+                            </svg>
+                        </div>
+                        <div class="sort-options">
+                            <div class="sort-option selected" data-sort="default">默认排序</div>
+                            <div class="sort-option" data-sort="newest">最新上架</div>
+                            <div class="sort-option" data-sort="popular">最受欢迎</div>
+                            <div class="sort-option" data-sort="name-asc">名称 (A-Z)</div>
+                            <div class="sort-option" data-sort="name-desc">名称 (Z-A)</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 筛选按钮 -->
+            <div class="filter-actions">
+                <button class="filter-btn reset-btn" id="reset-filters">重置筛选</button>
+                <button class="filter-btn apply-btn" id="apply-filters">应用筛选</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 页面指示器将被JS动态添加到这里 -->
+    
+    <!-- 电子书网格容器 -->
+    <div class="book-grid">
+        <!-- 电子书网格项 -->
+
+        <div class="book-item" data-badge="热门" data-category="科幻" data-theme="星际">
+            <img src="../../picture/001.jpg" alt="星际边疆设定集">
+            <h2>星际边疆设定集</h2>
+            <p>探索未来宇宙文明的世界观与设定</p>
+            <a href="#">查看详情</a>
+        </div>
+
+        <div class="book-item" data-badge="新品" data-category="奇幻" data-theme="魔法">
+            <img src="../../picture/002.jpg" alt="奇幻王国编年史">
+            <h2>奇幻王国编年史</h2>
+            <p>完整的魔法体系与种族设定</p>
+            <a href="#">查看详情</a>
+        </div>
+
+        <div class="book-item" data-badge="独家" data-category="科幻" data-theme="赛博朋克">
+            <img src="../../picture/003.jpg" alt="赛博朋克都市">
+            <h2>赛博朋克都市</h2>
+            <p>高科技低生活的未来都市景观</p>
+            <a href="#">查看详情</a>
+        </div>
+       
+        <div class="book-item" data-badge="推荐" data-category="生存策略" data-theme="末日">
+            <img src="../../picture/sony-WEST/ArtttSee001.jpg" alt="荒漠求生指南">
+            <h2>荒漠求生指南</h2>
+            <p>极端环境下的生存策略与工具</p>
+            <a href="#">查看详情</a>
+        </div>
+
+        <div class="book-item" data-badge="限时" data-category="文明构想" data-theme="西方">
+            <img src="../../picture/sony-WEST/ArtttSee004.jpg" alt="海洋文明探秘">
+            <h2>海洋文明探秘</h2>
+            <p>深海世界的文明构想与生态系统</p>
+            <a href="#">查看详情</a>
+        </div>
+        
+        <div class="book-item" data-category="奇幻" data-theme="东方">
+            <img src="../../picture/sony-WEST/ArtttSee007.jpg" alt="东方幻想录">
+            <h2>东方幻想录</h2>
+            <p>结合东方神话与现代元素的奇幻世界</p>
+            <a href="#">查看详情</a>
+        </div>
+        
+        <div class="book-item" data-category="科幻" data-theme="蒸汽朋克">
+            <img src="../home/PICTURE/001.jpg" alt="机械时代">
+            <h2>机械时代</h2>
+            <p>蒸汽朋克风格的机械世界设定</p>
+            <a href="#">查看详情</a>
+        </div>
+        
+        <div class="book-item" data-category="魔法体系" data-theme="魔法">
+            <img src="../home/PICTURE/002.jpg" alt="魔法学院">
+            <h2>魔法学院</h2>
+            <p>奥术研究与魔法学院体系构建</p>
+            <a href="#">查看详情</a>
+        </div>
+        
+        <div class="book-item" data-category="生存策略" data-theme="末日">
+            <img src="../home/PICTURE/003.jpg" alt="末日生存手册">
+            <h2>末日生存手册</h2>
+            <p>后末日时代的生存策略与世界重建</p>
+            <a href="#">查看详情</a>
+        </div>
+        
+        <div class="book-item" data-category="冒险指南" data-theme="异界">
+            <img src="../home/PICTURE/004.jpg" alt="异界旅行指南">
+            <h2>异界旅行指南</h2>
+            <p>穿越异世界的冒险指南</p>
+            <a href="#">查看详情</a>
+        </div>
+        
+        <div class="book-item" data-category="奇幻" data-theme="魔法">
+            <img src="../home/PICTURE/005.jpg" alt="龙族世界观">
+            <h2>龙族世界观</h2>
+            <p>关于龙族起源与文明的完整设定</p>
+            <a href="#">查看详情</a>
+        </div>
+        
+        <div class="book-item" data-category="未来规划" data-theme="科幻">
+            <img src="../home/PICTURE/006.jpg" alt="未来城市蓝图">
+            <h2>未来城市蓝图</h2>
+            <p>智能城市与可持续发展的未来规划</p>
+            <a href="#">查看详情</a>
+        </div>
+        
+        <!-- 其余电子书项... -->
+        <div class="book-item" data-category="世界观" data-theme="星际">
+            <img src="../home/PICTURE/001.jpg" alt="星际文明编年史">
+            <h2>星际文明编年史</h2>
+            <p>记录星际文明发展的完整历史</p>
+            <a href="#">查看详情</a>
+        </div>
+        
+        <div class="book-item" data-category="奇幻" data-theme="魔法">
+            <img src="../home/PICTURE/002.jpg" alt="魔法生物图鉴">
+            <h2>魔法生物图鉴</h2>
+            <p>奇幻世界中的生物分类与特性研究</p>
+            <a href="#">查看详情</a>
+        </div>
+        
+        <div class="book-item" data-category="科幻" data-theme="星际">
+            <img src="../home/PICTURE/003.jpg" alt="未来科技探索">
+            <h2>未来科技探索</h2>
+            <p>前沿科技与未来社会形态的预测</p>
+            <a href="#">查看详情</a>
+        </div>
+        
+        <div class="book-item" data-category="世界观" data-theme="西方">
+            <img src="../home/PICTURE/004.jpg" alt="古代遗迹探秘">
+            <h2>古代遗迹探秘</h2>
+            <p>失落文明的历史与考古发现</p>
+            <a href="#">查看详情</a>
+        </div>
+        
+        <div class="book-item" data-category="魔法体系" data-theme="魔法">
+            <img src="../home/PICTURE/005.jpg" alt="元素魔法体系">
+            <h2>元素魔法体系</h2>
+            <p>基于自然元素的魔法理论与实践</p>
+            <a href="#">查看详情</a>
+        </div>
+        
+        <div class="book-item" data-category="世界观" data-theme="魔法">
+            <img src="../home/PICTURE/006.jpg" alt="精灵王国史诗">
+            <h2>精灵王国史诗</h2>
+            <p>长寿种族的历史与文化传承</p>
+            <a href="#">查看详情</a>
+        </div>
+        
+        <div class="book-item" data-category="科幻" data-theme="星际">
+            <img src="../home/PICTURE/001.jpg" alt="亚空间理论">
+            <h2>亚空间理论</h2>
+            <p>关于平行维度与跨空间旅行的设定</p>
+            <a href="#">查看详情</a>
+        </div>
+        
+        <div class="book-item" data-category="奇幻" data-theme="魔法">
+            <img src="../home/PICTURE/002.jpg" alt="命运织网者">
+            <h2>命运织网者</h2>
+            <p>掌控命运线的神秘组织设定</p>
+            <a href="#">查看详情</a>
+        </div>
+        
+        <div class="book-item" data-category="科幻" data-theme="赛博朋克">
+            <img src="../home/PICTURE/003.jpg" alt="机械心智">
+            <h2>机械心智</h2>
+            <p>关于AI意识觉醒与机械生命的探讨</p>
+            <a href="#">查看详情</a>
+        </div>
+        
+        <div class="book-item" data-category="世界观" data-theme="魔法">
+            <img src="../home/PICTURE/004.jpg" alt="永恒战争编年史">
+            <h2>永恒战争编年史</h2>
+            <p>跨越时空的永恒冲突与平衡</p>
+            <a href="#">查看详情</a>
+        </div>
+        
+        <div class="book-item" data-category="奇幻" data-theme="西方">
+            <img src="../home/PICTURE/005.jpg" alt="深渊之下">
+            <h2>深渊之下</h2>
+            <p>探索未知深海生物与文明的危险旅程</p>
+            <a href="#">查看详情</a>
+        </div>
+        
+        <div class="book-item" data-category="奇幻" data-theme="异界">
+            <img src="../home/PICTURE/006.jpg" alt="虚幻边界">
+            <h2>虚幻边界</h2>
+            <p>现实与虚构世界的交界地带</p>
+            <a href="#">查看详情</a>
+        </div>
+    </div>
+
+    <!-- 分页导航 -->
+    <div class="pagination">
+        <div class="pagination-controls">
+            <button id="prev-page" disabled>上一页</button>
+            <div id="page-numbers"></div>
+            <button id="next-page">下一页</button>
+        </div>
+        <div class="pagination-jump">
+            <input type="number" id="jump-to-page" placeholder="页码" min="1">
+            <button id="jump-button">跳转</button>
+        </div>
+    </div>
+
+    <script src="./js/container.js"></script>
+    <script src="./js/fiter.js"></script>
+</body>
+
+</html>
